@@ -1,0 +1,8 @@
+# Following will be ignored when formatting with Prettier
+*.md
+node_modules
+.DS_Store
+dist
+dist-ssr
+*.local
+.eslintcache
