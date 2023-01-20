@@ -23,14 +23,18 @@ const Years = () => {
       {Object.keys(data)
         .reverse()
         .map((key) => {
-          let reversed = data[key].sort((a, b) => b - a);
-          console.log(reversed);
+          let reversed = data[key].sort((a, b) => {
+            if (isNaN(Number(a)) || isNaN(Number(b))) {
+              b = 0;
+            }
+            console.log(a, b);
+            return Number(b) - Number(a);
+          });
           return (
             <>
               <h3>{key}</h3>
               <div className="border-b-2"></div>
               {reversed.map((year, index) => {
-                console.log(year);
                 return <div key={index}>{year}</div>;
               })}
             </>
