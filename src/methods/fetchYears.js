@@ -1,7 +1,6 @@
 import axios from "axios";
 
-const fetchYears = ({ queryKey }) => {
-  const id = queryKey[1];
+const fetchYears = () => {
   return axios
     .get("http://localhost:3000/allYears")
     .then((response) => {

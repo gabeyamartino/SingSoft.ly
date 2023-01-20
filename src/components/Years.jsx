@@ -1,6 +1,7 @@
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { useQuery } from "@tanstack/react-query";
 import fetchYears from "../methods/fetchYears";
+import fetchShowsFromYear from "../methods/fetchShowsFromYear";
 
 const Years = () => {
   const { id } = useParams();
@@ -10,34 +11,42 @@ const Years = () => {
   if (results.isLoading) {
     return (
       <div>
-        <h2>spiral</h2>
+        <h2>Loading</h2>
       </div>
     );
   }
 
   const data = results.data.data;
-
-  console.log(data);
   return (
     <div>
       {Object.keys(data)
         .reverse()
-        .map((key) => {
+        .map((key, index) => {
           let reversed = data[key].sort((a, b) => {
             if (isNaN(Number(a)) || isNaN(Number(b))) {
               b = 0;
             }
-            console.log(a, b);
             return Number(b) - Number(a);
           });
           return (
-            <>
-              <h3>{key}</h3>
-              <div className="border-b-2"></div>
-              {reversed.map((year, index) => {
-                return <div key={index}>{year}</div>;
+            <div key={index}>
+              <div className="mt-4 border-b-2 p-2 text-3xl">{key} Era</div>
+              {reversed.map((year, i) => {
+                return (
+                  <Link
+                    to={`/year/${year}`}
+                    // onClick={() => {
+                    //   fetchShowsFromYear(year);
+                    // }}
+                    year={year}
+                    key={i}
+                    className="ml-2 block p-2 pl-0"
+                  >
+                    {year}
+                  </Link>
+                );
               })}
-            </>
+            </div>
           );
         })}
     </div>
