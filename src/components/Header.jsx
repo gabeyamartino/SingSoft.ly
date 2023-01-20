@@ -8,15 +8,15 @@ import {
 
 const Header = () => {
   return (
-    <div className="flex justify-around">
+    <div className="flex justify-between bg-gray-300 p-2">
       <div>
-        <div>SingSoft.ly</div>
-        <div>07.16.2022</div>
-        <div>Bangor, Maine</div>
+        <div className="text-2xl">SingSoft.ly</div>
+        <div className="text-sm">07.16.2022</div>
+        <div className="text-sm">Bangor, Maine</div>
       </div>
       <div className="flex items-center">
         <FaBackward />
-        <FaPlayCircle />
+        <FaPlayCircle size={"70"} />
         <FaPauseCircle />
         <FaForward />
       </div>

@@ -1,8 +1,11 @@
 import Header from "./Header.jsx";
 const App = () => {
   return (
-    <div className="min-w-screen min-h-screen">
+    <div className="">
       <Header />
+      <div className="flex p-2">
+        <h1>Years</h1>
+      </div>
     </div>
   );
 };
