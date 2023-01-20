@@ -8,7 +8,7 @@ import {
 
 const Header = () => {
   return (
-    <div className="flex justify-between bg-gray-300 p-2">
+    <div className="sticky top-0 z-50 flex justify-between bg-gray-300 p-2">
       <div>
         <div className="text-2xl">SingSoft.ly</div>
         <div className="text-sm">07.16.2022</div>
