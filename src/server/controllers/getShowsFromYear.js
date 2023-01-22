@@ -17,7 +17,7 @@ const getShowsFromYear = (req, res) => {
     .catch((err) => {
       res.status(500);
       res.end();
-      // console.log("error: ", err);
+      console.log("error: ", err);
     });
 };
 

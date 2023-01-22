@@ -4,13 +4,17 @@ require("dotenv").config();
 const cors = require("cors");
 const getAllYears = require("./controllers/getAllYears");
 const getShowsFromYear = require("./controllers/getShowsFromYear");
+const router = require("../lib/router");
 
 const app = express();
 const port = process.env.PORT || 3000;
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
-app.use(express.static("../dist/assets"));
+
+app.use("/api", router);
+
+app.use("/", express.static("src/dist"));
 app.use(cors());
 
 app.get("/allYears", getAllYears);

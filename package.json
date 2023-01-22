@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "Provides all the necessary setup files for a React and Vite application. Includes un-opinionated ESLint configuration that supports React Hooks and Prettier",
   "main": "index.js",
+  "homepage": "/",
   "scripts": {
     "dev": "concurrently 'vite' 'nodemon ./src/server/index.js'",
     "build": "vite build",

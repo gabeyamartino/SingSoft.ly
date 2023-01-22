@@ -1,7 +1,6 @@
 import { Link, useParams } from "react-router-dom";
 import { useQuery } from "@tanstack/react-query";
 import fetchYears from "../methods/fetchYears";
-import fetchShowsFromYear from "../methods/fetchShowsFromYear";
 
 const Years = () => {
   const { id } = useParams();
@@ -17,6 +16,10 @@ const Years = () => {
   }
 
   const data = results.data.data;
+
+  if (typeof data !== "object") {
+    return null;
+  }
   return (
     <div>
       {Object.keys(data)
