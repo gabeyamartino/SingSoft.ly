@@ -15,7 +15,21 @@ const Year = () => {
     );
   }
 
-  return <div>{id}</div>;
+  let data = results.data.data;
+  console.log(data);
+
+  return (
+    <div>
+      {data.map((show, i) => {
+        return (
+          <div key={i}>
+            <span>{show.date}</span>
+            <span>{show.venue_name}</span>
+          </div>
+        );
+      })}
+    </div>
+  );
 };
 
 export default Year;

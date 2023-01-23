@@ -11,7 +11,7 @@ const getShowsFromYear = (req, res) => {
   axios
     .get(`http://phish.in/api/v1/years/${req.query.year}`, config)
     .then((data) => {
-      // console.log(data);
+      console.log(data);
       res.json(data.data).end();
     })
     .catch((err) => {

@@ -8,7 +8,7 @@ const getAllYears = (req, res) => {
     },
   };
   axios
-    .get("http://phish.in/api/v1/eras", config)
+    .get("http://phish.in/api/v1/eras?include_show_counts=true", config)
     .then((data) => {
       res.json(data.data).end();
     })

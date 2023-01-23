@@ -7,8 +7,6 @@ const Years = () => {
 
   const results = useQuery(["years", id], fetchYears);
 
-  let data = {};
-
   if (results.isLoading) {
     return (
       <div>
@@ -17,8 +15,7 @@ const Years = () => {
     );
   }
 
-  data = results.data.data;
-
+  let data = results.data.data;
   return (
     <div>
       {Object.keys(data)
@@ -37,9 +34,6 @@ const Years = () => {
                 return (
                   <Link
                     to={`/year/${year}`}
-                    // onClick={() => {
-                    //   fetchShowsFromYear(year);
-                    // }}
                     year={year}
                     key={i}
                     className="ml-2 block p-2 pl-0"
