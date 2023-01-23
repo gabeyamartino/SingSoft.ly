@@ -7,6 +7,8 @@ const Years = () => {
 
   const results = useQuery(["years", id], fetchYears);
 
+  let data = {};
+
   if (results.isLoading) {
     return (
       <div>
@@ -15,11 +17,8 @@ const Years = () => {
     );
   }
 
-  const data = results.data.data;
+  data = results.data.data;
 
-  if (typeof data !== "object") {
-    return null;
-  }
   return (
     <div>
       {Object.keys(data)
