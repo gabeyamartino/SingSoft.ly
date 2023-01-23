@@ -1,7 +1,6 @@
 const axios = require("axios");
 
 const getAllYears = (req, res) => {
-  console.log("fired on page load");
   let config = {
     headers: {
       Authorization: `Bearer ${process.env.API_KEY}`,

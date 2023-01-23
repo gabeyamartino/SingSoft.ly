@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import {
   FaPlayCircle,
   FaPauseCircle,
@@ -10,7 +10,9 @@ const Header = () => {
   return (
     <div className="sticky top-0 z-50 flex justify-between bg-gray-300 p-2">
       <div>
-        <div className="text-2xl">SingSoft.ly</div>
+        <Link to="/" className="text-2xl">
+          SingSoft.ly
+        </Link>
         <div className="text-sm">07.16.2022</div>
         <div className="text-sm">Bangor, Maine</div>
       </div>

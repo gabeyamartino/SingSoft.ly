@@ -16,15 +16,20 @@ const Year = () => {
   }
 
   let data = results.data.data;
-  console.log(data);
+
+  let ordered = [...data].reverse();
 
   return (
-    <div>
-      {data.map((show, i) => {
+    <div className="p-1">
+      {ordered.map((show, i) => {
         return (
-          <div key={i}>
+          <div className="flex justify-between p-1" key={i}>
             <span>{show.date}</span>
-            <span>{show.venue_name}</span>
+            {show.venue_name.length >= 30 ? (
+              <span>{show.venue_name.slice(0, 30)}...</span>
+            ) : (
+              <span>{show.venue_name}</span>
+            )}
           </div>
         );
       })}
