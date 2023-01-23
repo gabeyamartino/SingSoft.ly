@@ -1,7 +1,6 @@
 import { useParams, Link } from "react-router-dom";
 import { useQuery } from "@tanstack/react-query";
 import fetchShowsFromYear from "../methods/fetchShowsFromYear";
-import Show from "./Show.jsx";
 
 const Year = () => {
   const { id } = useParams();
