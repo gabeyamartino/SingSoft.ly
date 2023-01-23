@@ -1,6 +1,7 @@
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import { useQuery } from "@tanstack/react-query";
 import fetchShowsFromYear from "../methods/fetchShowsFromYear";
+import Show from "./Show.jsx";
 
 const Year = () => {
   const { id } = useParams();
@@ -23,14 +24,26 @@ const Year = () => {
     <div className="p-1">
       {ordered.map((show, i) => {
         return (
-          <div className="flex justify-between p-1" key={i}>
-            <span>{show.date}</span>
+          <Link
+            to={`/show/${show.date}`}
+            className="flex justify-between p-1"
+            key={i}
+            state={{
+              duration: show.duration,
+              tracks: show.tracks,
+              venue: show.venue,
+            }}
+          >
+            <span>
+              {show.date.slice(5, 7)}.{show.date.slice(-2)}.
+              {show.date.slice(0, 4)}
+            </span>
             {show.venue_name.length >= 30 ? (
               <span>{show.venue_name.slice(0, 30)}...</span>
             ) : (
               <span>{show.venue_name}</span>
             )}
-          </div>
+          </Link>
         );
       })}
     </div>
