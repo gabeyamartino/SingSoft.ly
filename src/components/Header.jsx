@@ -1,5 +1,7 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import convertTime from "../methods/convertTime.js";
+
 import {
   FaPlayCircle,
   FaPauseCircle,
@@ -8,20 +10,6 @@ import {
 } from "react-icons/fa";
 
 const Header = ({ showInfo, trackInfo }) => {
-  // let padTo2Digits = (num) => {
-  //   return num.toString().padStart(2, "0");
-  // };
-
-  // const convertMsToTime = (milliseconds) => {
-  //   let seconds = Math.floor(milliseconds / 1000);
-  //   let minutes = Math.floor(seconds / 60);
-
-  //   seconds = seconds % 60;
-  //   minutes = minutes % 60;
-
-  //   return `${padTo2Digits(minutes)}:${padTo2Digits(seconds)}`;
-  // };
-
   console.log("Show info in header, ", showInfo);
 
   return (
@@ -40,7 +28,6 @@ const Header = ({ showInfo, trackInfo }) => {
             <div className="text-sm">{showInfo.venue.location}</div>
           </Link>
         )}
-        <div>{trackInfo.title}</div>
       </div>
 
       <div className="flex items-center">
@@ -48,6 +35,11 @@ const Header = ({ showInfo, trackInfo }) => {
         <FaPlayCircle size={"70"} />
         <FaPauseCircle />
         <FaForward />
+      </div>
+
+      <div>
+        <div>{trackInfo.title}</div>
+        {trackInfo.title ? <div>{convertTime(trackInfo.duration)}</div> : null}
       </div>
     </div>
   );
