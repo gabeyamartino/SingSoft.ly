@@ -2,7 +2,7 @@ import axios from "axios";
 
 const fetchShowsFromYear = (year) => {
   return axios
-    .get("http://localhost:3000/showsFromYear", {
+    .get("http://192.168.1.155:3000/showsFromYear", {
       params: {
         year: year,
       },
