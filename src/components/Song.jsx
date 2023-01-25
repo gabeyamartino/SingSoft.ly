@@ -1,24 +1,12 @@
 import { Howl, Howler } from "howler";
+import convertTime from "../methods/convertTime.js";
 
 let track = null;
 
-const Song = ({ title, duration, mp3 }) => {
-  let padTo2Digits = (num) => {
-    return num.toString().padStart(2, "0");
-  };
-
-  const convertMsToTime = (milliseconds) => {
-    let seconds = Math.floor(milliseconds / 1000);
-    let minutes = Math.floor(seconds / 60);
-
-    seconds = seconds % 60;
-    minutes = minutes % 60;
-
-    return `${padTo2Digits(minutes)}:${padTo2Digits(seconds)}`;
-  };
-
+const Song = ({ title, duration, mp3, getTrackInfo }) => {
   let playTrack = () => {
     Howler.stop();
+    getTrackInfo({ title, duration });
 
     console.log(title, mp3);
     track = new Howl({
@@ -44,7 +32,7 @@ const Song = ({ title, duration, mp3 }) => {
       tabIndex={0}
     >
       <div>{title}</div>
-      <div>{convertMsToTime(duration)}</div>
+      <div>{convertTime(duration)}</div>
     </div>
   );
 };

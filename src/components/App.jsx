@@ -17,25 +17,36 @@ const queryClient = new QueryClient({
 
 const App = () => {
   const [showInfo, setShowInfo] = useState({});
+  const [trackInfo, setTrackInfo] = useState({});
 
   const setShowData = (data) => {
     setShowInfo(data);
   };
 
-  console.log(showInfo);
+  const getTrackInfo = (track) => {
+    setTrackInfo(track);
+  };
+
+  console.log(trackInfo);
 
   return (
     <div>
       <BrowserRouter>
         <QueryClientProvider client={queryClient}>
-          <Header showInfo={showInfo} />
+          <Header showInfo={showInfo} trackInfo={trackInfo} />
           <Routes>
             <Route path="/" element={<Years />} />
             <Route path="/years" element={<Years />} />
             <Route path="year/:id" element={<Year />} />
             <Route
               path="show/:date"
-              element={<Show setShowData={setShowData} showInfo={showInfo} />}
+              element={
+                <Show
+                  setShowData={setShowData}
+                  showInfo={showInfo}
+                  getTrackInfo={getTrackInfo}
+                />
+              }
             />
           </Routes>
         </QueryClientProvider>

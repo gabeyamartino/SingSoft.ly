@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import Song from "./Song.jsx";
 
-const Show = ({ setShowData }) => {
+const Show = ({ setShowData, getTrackInfo }) => {
   const location = useLocation();
   let set = "";
 
@@ -38,6 +38,7 @@ const Show = ({ setShowData }) => {
               title={track.title}
               duration={track.duration}
               mp3={track.mp3}
+              getTrackInfo={getTrackInfo}
             />
           </div>
         );
