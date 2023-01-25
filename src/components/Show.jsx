@@ -6,6 +6,8 @@ const Show = ({ setShowData }) => {
   const location = useLocation();
   let set = "";
 
+  console.log("LOCATION IN SHOW, ", location.state);
+
   const checkSet = (setNum, num) => {
     if (setNum !== num) {
       set = setNum;
@@ -18,9 +20,13 @@ const Show = ({ setShowData }) => {
   };
   useEffect(() => {
     setShowData(location.state);
-  }, [location.state]);
 
-  console.log(location.state);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  if (!location.state) {
+    return null;
+  }
 
   return (
     <div className="p-2">

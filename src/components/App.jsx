@@ -35,7 +35,7 @@ const App = () => {
             <Route path="year/:id" element={<Year />} />
             <Route
               path="show/:date"
-              element={<Show setShowData={setShowData} />}
+              element={<Show setShowData={setShowData} showInfo={showInfo} />}
             />
           </Routes>
         </QueryClientProvider>
