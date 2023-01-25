@@ -4,7 +4,6 @@ import fetchShowsFromYear from "../methods/fetchShowsFromYear";
 
 const Year = () => {
   const { id } = useParams();
-  console.log("ID INSIDE YEAR", id);
   const results = useQuery(["year", id], () => fetchShowsFromYear(id));
 
   if (results.isLoading) {
@@ -16,7 +15,6 @@ const Year = () => {
   }
 
   let data = results.data.data;
-
   let ordered = [...data].reverse();
 
   return (
@@ -31,6 +29,7 @@ const Year = () => {
               duration: show.duration,
               tracks: show.tracks,
               venue: show.venue,
+              date: show.date,
             }}
           >
             <span>

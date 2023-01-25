@@ -1,7 +1,8 @@
+import { useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import Song from "./Song.jsx";
 
-const Show = () => {
+const Show = ({ setShowData }) => {
   const location = useLocation();
   let set = "";
 
@@ -15,6 +16,11 @@ const Show = () => {
       );
     }
   };
+  useEffect(() => {
+    setShowData(location.state);
+  }, [location.state]);
+
+  console.log(location.state);
 
   return (
     <div className="p-2">

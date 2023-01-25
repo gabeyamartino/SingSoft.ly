@@ -4,7 +4,6 @@ import fetchYears from "../methods/fetchYears";
 
 const Years = () => {
   const { id } = useParams();
-
   const results = useQuery(["years", id], fetchYears);
 
   if (results.isLoading) {
