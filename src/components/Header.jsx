@@ -2,13 +2,6 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import convertTime from "../methods/convertTime.js";
 
-import {
-  FaPlayCircle,
-  FaPauseCircle,
-  FaForward,
-  FaBackward,
-} from "react-icons/fa";
-
 const Header = ({ showInfo, trackInfo }) => {
   console.log("Show info in header, ", showInfo);
 
@@ -28,13 +21,6 @@ const Header = ({ showInfo, trackInfo }) => {
             <div className="text-sm">{showInfo.venue.location}</div>
           </Link>
         )}
-      </div>
-
-      <div className="flex items-center">
-        <FaBackward />
-        <FaPlayCircle size={"70"} />
-        <FaPauseCircle />
-        <FaForward />
       </div>
 
       <div>
