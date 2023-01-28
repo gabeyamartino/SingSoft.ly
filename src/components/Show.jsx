@@ -2,11 +2,9 @@ import { useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import Song from "./Song.jsx";
 
-const Show = ({ setShowData, getTrackInfo }) => {
+const Show = ({ setShowData, getTrackInfo, setCurrentTrack }) => {
   const location = useLocation();
   let set = "";
-
-  console.log("LOCATION IN SHOW, ", location.state);
 
   const checkSet = (setNum, num) => {
     if (setNum !== num) {
@@ -29,7 +27,7 @@ const Show = ({ setShowData, getTrackInfo }) => {
   }
 
   return (
-    <div className="p-2">
+    <div className="mb-28 p-2">
       {location.state.tracks.map((track, i) => {
         return (
           <div key={i}>
@@ -39,6 +37,7 @@ const Show = ({ setShowData, getTrackInfo }) => {
               duration={track.duration}
               mp3={track.mp3}
               getTrackInfo={getTrackInfo}
+              setCurrentTrack={setCurrentTrack}
             />
           </div>
         );

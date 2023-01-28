@@ -2,6 +2,7 @@ import Header from "./Header.jsx";
 import Years from "./Years.jsx";
 import Year from "./Year.jsx";
 import Show from "./Show.jsx";
+import Player from "./Player.jsx";
 import { useState } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
@@ -18,6 +19,12 @@ const queryClient = new QueryClient({
 const App = () => {
   const [showInfo, setShowInfo] = useState({});
   const [trackInfo, setTrackInfo] = useState({});
+  const [currentTrack, setCurrentTrack] = useState(trackInfo);
+
+  const onEnd = (array) => {
+    array.shift();
+    setCurrentTrack(array[0]);
+  };
 
   const setShowData = (data) => {
     setShowInfo(data);
@@ -25,9 +32,8 @@ const App = () => {
 
   const getTrackInfo = (track) => {
     setTrackInfo(track);
+    console.log(trackInfo);
   };
-
-  console.log(trackInfo);
 
   return (
     <div>
@@ -45,10 +51,19 @@ const App = () => {
                   setShowData={setShowData}
                   showInfo={showInfo}
                   getTrackInfo={getTrackInfo}
+                  setCurrentTrack={setCurrentTrack}
                 />
               }
             />
           </Routes>
+          {trackInfo.mp3 && (
+            <Player
+              trackInfo={trackInfo}
+              showInfo={showInfo}
+              currentTrack={currentTrack}
+              onEnd={onEnd}
+            />
+          )}
         </QueryClientProvider>
       </BrowserRouter>
     </div>

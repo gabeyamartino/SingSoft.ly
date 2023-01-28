@@ -1,10 +1,7 @@
-import { useState } from "react";
 import { Link } from "react-router-dom";
 import convertTime from "../methods/convertTime.js";
 
 const Header = ({ showInfo, trackInfo }) => {
-  console.log("Show info in header, ", showInfo);
-
   return (
     <div className="sticky top-0 z-50 flex justify-between bg-gray-300 p-2">
       <div>
