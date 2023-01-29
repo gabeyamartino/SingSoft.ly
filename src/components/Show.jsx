@@ -1,4 +1,3 @@
-import { useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import Song from "./Song.jsx";
 
@@ -16,11 +15,11 @@ const Show = ({ setShowData, getTrackInfo, setCurrentTrack }) => {
       );
     }
   };
-  useEffect(() => {
-    setShowData(location.state);
+  // useEffect(() => {
+  //   setShowData(location.state);
 
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  //   // eslint-disable-next-line react-hooks/exhaustive-deps
+  // }, []);
 
   if (!location.state) {
     return null;
@@ -29,6 +28,7 @@ const Show = ({ setShowData, getTrackInfo, setCurrentTrack }) => {
   return (
     <div className="mb-28 p-2">
       {location.state.tracks.map((track, i) => {
+        console.log(track.show_date);
         return (
           <div key={i}>
             {checkSet(track.set, set)}
@@ -36,6 +36,13 @@ const Show = ({ setShowData, getTrackInfo, setCurrentTrack }) => {
               title={track.title}
               duration={track.duration}
               mp3={track.mp3}
+              currentShow={{
+                venue_name: track.venue_name,
+                venue_location: track.venue_location,
+                date: track.show_date,
+                tracks: location.state.tracks,
+              }}
+              setShowData={setShowData}
               getTrackInfo={getTrackInfo}
               setCurrentTrack={setCurrentTrack}
             />

@@ -28,6 +28,7 @@ const App = () => {
 
   const setShowData = (data) => {
     setShowInfo(data);
+    console.log(showInfo);
   };
 
   const getTrackInfo = (track) => {

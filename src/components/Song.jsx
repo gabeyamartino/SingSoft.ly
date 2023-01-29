@@ -1,15 +1,26 @@
 import convertTime from "../methods/convertTime.js";
 
-const Song = ({ title, duration, mp3, getTrackInfo, setCurrentTrack }) => {
+const Song = ({
+  title,
+  duration,
+  mp3,
+  getTrackInfo,
+  setCurrentTrack,
+  setShowData,
+  currentShow,
+}) => {
   let playTrack = () => {
+    setShowData(currentShow);
+
     setCurrentTrack({ title, duration, mp3, position: 0 });
     getTrackInfo({ title, duration, mp3, position: 0 });
   };
-
   return (
     <div
       className="flex justify-between border-b-2 pt-2 pb-2"
-      onClick={() => playTrack()}
+      onClick={() => {
+        playTrack();
+      }}
       onKeyPress={() => playTrack()}
       role="button"
       tabIndex={0}
