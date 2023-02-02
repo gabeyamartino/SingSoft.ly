@@ -4,10 +4,7 @@ import "react-h5-audio-player/lib/styles.css";
 const Player = ({ trackInfo, showInfo, currentTrack, onEnd }) => {
   const tracks = showInfo.tracks;
 
-  console.log(showInfo);
-
   const checkTrackInList = (track) => {
-    console.log("working");
     return track.title === trackInfo.title;
   };
 
@@ -15,8 +12,6 @@ const Player = ({ trackInfo, showInfo, currentTrack, onEnd }) => {
     tracks.findIndex(checkTrackInList),
     tracks.length
   );
-
-  console.log("CURRENT TRACK WITHIN PLATER", currentTrack);
 
   return (
     <AudioPlayer
@@ -28,7 +23,6 @@ const Player = ({ trackInfo, showInfo, currentTrack, onEnd }) => {
       showSkipControls={true}
       showJumpControls={false}
       onEnded={() => onEnd(tracksAfterCurrent)}
-      // other props here
     />
   );
 };

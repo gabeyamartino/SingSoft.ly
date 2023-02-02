@@ -1,7 +1,13 @@
 import { useLocation } from "react-router-dom";
 import Song from "./Song.jsx";
 
-const Show = ({ setShowData, getTrackInfo, setCurrentTrack, showInfo }) => {
+const Show = ({
+  setShowData,
+  getTrackInfo,
+  setCurrentTrack,
+  showInfo,
+  currentTrack,
+}) => {
   const location = useLocation();
   let set = "";
 
@@ -12,17 +18,12 @@ const Show = ({ setShowData, getTrackInfo, setCurrentTrack, showInfo }) => {
     if (setNum !== num) {
       set = setNum;
       return setNum === "E" ? (
-        <div className="border-b-4 text-2xl">Encore</div>
+        <div className="mt-8 border-b-4 text-2xl">Encore</div>
       ) : (
-        <div className="border-b-4 text-2xl">Set {setNum}</div>
+        <div className="mt-8 border-b-4 text-2xl">Set {setNum}</div>
       );
     }
   };
-  // useEffect(() => {
-  //   setShowData(location.state);
-
-  //   // eslint-disable-next-line react-hooks/exhaustive-deps
-  // }, []);
 
   if (!location.state) {
     return null;
@@ -30,17 +31,15 @@ const Show = ({ setShowData, getTrackInfo, setCurrentTrack, showInfo }) => {
 
   return (
     <div className="p-2">
-      <div className="flex justify-center gap-1">
+      <div className="flex-col">
         <div className="">
           {location.state.date.slice(5, 7)}.{location.state.date.slice(-2)}.
           {location.state.date.slice(0, 4)}
         </div>
-        <div>|</div>
         <div className="">{location.state.venue.name} </div>
-        <div>|</div>
         <div className="">{location.state.venue.location} </div>
       </div>
-
+      <br />
       {location.state.tracks.map((track, i) => {
         return (
           <div key={i}>
@@ -58,6 +57,7 @@ const Show = ({ setShowData, getTrackInfo, setCurrentTrack, showInfo }) => {
               setShowData={setShowData}
               getTrackInfo={getTrackInfo}
               setCurrentTrack={setCurrentTrack}
+              currentTrack={currentTrack}
             />
           </div>
         );

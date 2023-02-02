@@ -1,7 +1,6 @@
 import { Link } from "react-router-dom";
 
 const Header = ({ showInfo }) => {
-  console.log(showInfo);
   return (
     <div className="sticky top-0 z-50 flex justify-between bg-gray-300 p-2">
       <div>
@@ -29,7 +28,7 @@ const Header = ({ showInfo }) => {
               {showInfo.date.slice(5, 7)}.{showInfo.date.slice(-2)}.
               {showInfo.date.slice(0, 4)}
             </div>
-            <div className="">{showInfo.venue_name}</div>
+            <div>{showInfo.venue_name}</div>
             <div className="text-sm">{showInfo.venue_location}</div>
           </Link>
         </div>

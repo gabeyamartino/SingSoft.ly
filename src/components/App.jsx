@@ -20,7 +20,7 @@ const App = () => {
   const [showInfo, setShowInfo] = useState({});
   const [trackInfo, setTrackInfo] = useState({});
   const [currentTrack, setCurrentTrack] = useState(trackInfo);
-
+  console.log(currentTrack);
   const onEnd = (array) => {
     array.shift();
     setCurrentTrack(array[0]);
@@ -53,6 +53,7 @@ const App = () => {
                   showInfo={showInfo}
                   getTrackInfo={getTrackInfo}
                   setCurrentTrack={setCurrentTrack}
+                  currentTrack={currentTrack}
                 />
               }
             />
