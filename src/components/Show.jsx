@@ -30,13 +30,15 @@ const Show = ({ setShowData, getTrackInfo, setCurrentTrack, showInfo }) => {
 
   return (
     <div className="p-2">
-      <div>
+      <div className="flex justify-center gap-1">
         <div className="">
           {location.state.date.slice(5, 7)}.{location.state.date.slice(-2)}.
           {location.state.date.slice(0, 4)}
         </div>
-        <div className="">{location.state.venue.name}</div>
-        <div className="text-sm">{location.state.venue.location}</div>
+        <div>|</div>
+        <div className="">{location.state.venue.name} </div>
+        <div>|</div>
+        <div className="">{location.state.venue.location} </div>
       </div>
 
       {location.state.tracks.map((track, i) => {
