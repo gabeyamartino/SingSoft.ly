@@ -1,16 +1,18 @@
 import { Link } from "react-router-dom";
+import { ReactComponent as Logo } from "../assets/logo-color.svg";
 
 const Header = ({ showInfo }) => {
   return (
-    <div className="sticky top-0 z-50 flex justify-between bg-gray-300 p-2">
-      <div>
-        <Link to="/" className="text-2xl">
-          SingSoft.ly
+    <div className=" sticky top-0 z-50 flex items-center justify-between bg-logo-green p-2">
+      <div className="">
+        <Link to="/" className="-pt-2 text-2xl">
+          <Logo />
+          {/* <img src="../assets/logo-color.svg" alt="SingSoft.ly Logo"></img> */}
         </Link>
       </div>
 
       {Object.keys(showInfo).length > 0 && (
-        <div>
+        <div className="text-white">
           <div className="text-xs">Now Playing: </div>
           <Link
             to={`/show/${showInfo.date}`}

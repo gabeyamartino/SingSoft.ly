@@ -3,6 +3,7 @@ import Years from "./Years.jsx";
 import Year from "./Year.jsx";
 import Show from "./Show.jsx";
 import Player from "./Player.jsx";
+import ScrollToTop from "./ScrollToTop.jsx";
 import { useState } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
@@ -44,8 +45,10 @@ const App = () => {
   };
 
   return (
-    <div className="lg:m-auto lg:max-w-screen-sm lg:flex-col lg:items-center">
+    <div className="bg-gray-300 lg:m-auto lg:max-w-screen-sm lg:flex-col lg:items-center">
       <BrowserRouter>
+        <ScrollToTop />
+
         <QueryClientProvider client={queryClient}>
           <Header showInfo={showInfo} currentTrack={currentTrack} />
           <Routes>

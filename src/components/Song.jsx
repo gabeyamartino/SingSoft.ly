@@ -20,7 +20,7 @@ const Song = ({
     <div>
       {currentTrack && mp3 === currentTrack.mp3 ? (
         <div
-          className="-ml-2 -mr-2 flex justify-between border-b-2 bg-green-300 p-2"
+          className="-ml-2 -mr-2 flex justify-between border-b-2 border-gray-600 bg-green-700 p-2"
           onClick={() => {
             playTrack();
           }}
@@ -33,7 +33,7 @@ const Song = ({
         </div>
       ) : (
         <div
-          className="flex justify-between border-b-2 pt-2 pb-2"
+          className="-mr-2 -ml-2 flex justify-between border-b-2 border-gray-600 p-2"
           onClick={() => {
             playTrack();
           }}

@@ -1,6 +1,6 @@
 const LoadingAnimation = () => {
   return (
-    <div className="fixed flex h-screen min-w-full items-center justify-center">
+    <div className="fixed h-full min-w-full flex-col items-center justify-center">
       <div role="status">
         <svg
           aria-hidden="true"

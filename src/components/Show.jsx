@@ -9,9 +9,13 @@ const Show = ({ setShowData, getTrackInfo, setCurrentTrack, currentTrack }) => {
     if (setNum !== num) {
       set = setNum;
       return setNum === "E" ? (
-        <div className="mt-8 border-b-4 text-2xl">Encore</div>
+        <div className="-ml-2 -mr-2 mt-4 border-b-4 border-gray-600 p-2 text-2xl">
+          Encore
+        </div>
       ) : (
-        <div className="mt-8 border-b-4 text-2xl">Set {setNum}</div>
+        <div className="-ml-2 -mr-2 mt-4 border-b-4 border-gray-600 p-2 text-2xl">
+          Set {setNum}
+        </div>
       );
     }
   };
