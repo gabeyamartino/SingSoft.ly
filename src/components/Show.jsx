@@ -1,9 +1,12 @@
 import { useLocation } from "react-router-dom";
 import Song from "./Song.jsx";
 
-const Show = ({ setShowData, getTrackInfo, setCurrentTrack }) => {
+const Show = ({ setShowData, getTrackInfo, setCurrentTrack, showInfo }) => {
   const location = useLocation();
   let set = "";
+
+  console.log(location.state);
+  console.log(showInfo);
 
   const checkSet = (setNum, num) => {
     if (setNum !== num) {
@@ -27,6 +30,15 @@ const Show = ({ setShowData, getTrackInfo, setCurrentTrack }) => {
 
   return (
     <div className="p-2">
+      <div>
+        <div className="">
+          {location.state.date.slice(5, 7)}.{location.state.date.slice(-2)}.
+          {location.state.date.slice(0, 4)}
+        </div>
+        <div className="">{location.state.venue.name}</div>
+        <div className="text-sm">{location.state.venue.location}</div>
+      </div>
+
       {location.state.tracks.map((track, i) => {
         return (
           <div key={i}>

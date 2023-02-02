@@ -28,16 +28,16 @@ const App = () => {
 
   const setShowData = (data) => {
     setShowInfo(data);
-    console.log(showInfo);
+    //console.log(showInfo);
   };
 
   const getTrackInfo = (track) => {
     setTrackInfo(track);
-    console.log(trackInfo);
+    //console.log(trackInfo);
   };
 
   return (
-    <div>
+    <div className="lg:m-auto lg:max-w-screen-sm lg:flex-col lg:items-center">
       <BrowserRouter>
         <QueryClientProvider client={queryClient}>
           <Header showInfo={showInfo} trackInfo={trackInfo} />
