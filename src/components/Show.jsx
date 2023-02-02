@@ -1,18 +1,9 @@
 import { useLocation } from "react-router-dom";
 import Song from "./Song.jsx";
 
-const Show = ({
-  setShowData,
-  getTrackInfo,
-  setCurrentTrack,
-  showInfo,
-  currentTrack,
-}) => {
+const Show = ({ setShowData, getTrackInfo, setCurrentTrack, currentTrack }) => {
   const location = useLocation();
   let set = "";
-
-  console.log(location.state);
-  console.log(showInfo);
 
   const checkSet = (setNum, num) => {
     if (setNum !== num) {

@@ -1,18 +1,25 @@
 import AudioPlayer from "react-h5-audio-player";
 import "react-h5-audio-player/lib/styles.css";
 
-const Player = ({ trackInfo, showInfo, currentTrack, onEnd }) => {
+const Player = ({ showInfo, currentTrack, onEnd, onPrevious }) => {
   const tracks = showInfo.tracks;
 
+  console.log("CURRENT TRACK IN PLAYER: ", currentTrack.title);
+
   const checkTrackInList = (track) => {
-    return track.title === trackInfo.title;
+    return track.title === currentTrack.title;
   };
 
-  const tracksAfterCurrent = tracks.slice(
+  let tracksAfterCurrent = tracks.slice(
     tracks.findIndex(checkTrackInList),
     tracks.length
   );
 
+  let tracksBeforeCurrent = tracks.slice(0, tracks.findIndex(checkTrackInList));
+
+  console.log(tracksBeforeCurrent);
+
+  console.log(tracksAfterCurrent);
   return (
     <AudioPlayer
       className="sticky bottom-0"
@@ -23,6 +30,10 @@ const Player = ({ trackInfo, showInfo, currentTrack, onEnd }) => {
       showSkipControls={true}
       showJumpControls={false}
       onEnded={() => onEnd(tracksAfterCurrent)}
+      onClickNext={() => onEnd(tracksAfterCurrent)}
+      onClickPrevious={() =>
+        onPrevious(tracksAfterCurrent, tracksBeforeCurrent)
+      }
     />
   );
 };

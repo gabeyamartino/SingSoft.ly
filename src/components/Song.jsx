@@ -10,8 +10,6 @@ const Song = ({
   currentShow,
   currentTrack,
 }) => {
-  console.log(currentTrack);
-
   let playTrack = () => {
     setShowData(currentShow);
 

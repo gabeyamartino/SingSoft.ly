@@ -18,13 +18,19 @@ const queryClient = new QueryClient({
 
 const App = () => {
   const [showInfo, setShowInfo] = useState({});
-  const [trackInfo, setTrackInfo] = useState({});
-  const [currentTrack, setCurrentTrack] = useState(trackInfo);
+  const [currentTrack, setCurrentTrack] = useState({});
   console.log(currentTrack);
   const onEnd = (array) => {
     array.shift();
+    if (!array.length) return;
     setCurrentTrack(array[0]);
   };
+
+  const onPrevious = (curr, prev) => {
+    curr.unshift(prev[prev.length - 1]);
+    setCurrentTrack(curr[0]);
+  };
+  console.log("CURRENT TRACK", currentTrack);
 
   const setShowData = (data) => {
     setShowInfo(data);
@@ -32,7 +38,7 @@ const App = () => {
   };
 
   const getTrackInfo = (track) => {
-    setTrackInfo(track);
+    setCurrentTrack(track);
     //console.log(trackInfo);
   };
 
@@ -40,7 +46,7 @@ const App = () => {
     <div className="lg:m-auto lg:max-w-screen-sm lg:flex-col lg:items-center">
       <BrowserRouter>
         <QueryClientProvider client={queryClient}>
-          <Header showInfo={showInfo} trackInfo={trackInfo} />
+          <Header showInfo={showInfo} currentTrack={currentTrack} />
           <Routes>
             <Route path="/" element={<Years />} />
             <Route path="/years" element={<Years />} />
@@ -58,12 +64,12 @@ const App = () => {
               }
             />
           </Routes>
-          {trackInfo.mp3 && (
+          {currentTrack.mp3 && (
             <Player
-              trackInfo={trackInfo}
               showInfo={showInfo}
               currentTrack={currentTrack}
               onEnd={onEnd}
+              onPrevious={onPrevious}
             />
           )}
         </QueryClientProvider>
