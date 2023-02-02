@@ -8,7 +8,7 @@ const Year = () => {
 
   if (results.isLoading) {
     return (
-      <div className="min-w-screen flex min-h-screen items-center justify-center">
+      <div className="fixed flex h-screen min-w-full items-center justify-center">
         <div role="status">
           <svg
             aria-hidden="true"

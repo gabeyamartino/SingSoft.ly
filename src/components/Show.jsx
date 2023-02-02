@@ -23,12 +23,12 @@ const Show = ({ setShowData, getTrackInfo, setCurrentTrack, currentTrack }) => {
   return (
     <div className="p-2">
       <div className="flex-col">
-        <div className="">
+        <div className="font-bold">
           {location.state.date.slice(5, 7)}.{location.state.date.slice(-2)}.
           {location.state.date.slice(0, 4)}
         </div>
-        <div className="">{location.state.venue.name} </div>
-        <div className="">{location.state.venue.location} </div>
+        <div className="font-bold">{location.state.venue.name} </div>
+        <div className="font-bold">{location.state.venue.location} </div>
       </div>
       <br />
       {location.state.tracks.map((track, i) => {
