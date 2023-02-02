@@ -20,7 +20,7 @@ const Player = ({ trackInfo, showInfo, currentTrack, onEnd }) => {
 
   return (
     <AudioPlayer
-      className="fixed bottom-0"
+      className="sticky bottom-0"
       autoPlay
       autoPlayAfterSrcChange
       src={currentTrack.mp3}

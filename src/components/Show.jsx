@@ -26,9 +26,8 @@ const Show = ({ setShowData, getTrackInfo, setCurrentTrack }) => {
   }
 
   return (
-    <div className="mb-28 p-2">
+    <div className="p-2">
       {location.state.tracks.map((track, i) => {
-        console.log(track.show_date);
         return (
           <div key={i}>
             {checkSet(track.set, set)}
