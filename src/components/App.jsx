@@ -27,6 +27,7 @@ const App = () => {
   };
 
   const onPrevious = (curr, prev) => {
+    if (!prev.length) return;
     curr.unshift(prev[prev.length - 1]);
     setCurrentTrack(curr[0]);
   };
