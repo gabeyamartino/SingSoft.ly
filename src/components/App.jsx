@@ -20,7 +20,7 @@ const queryClient = new QueryClient({
 const App = () => {
   const [showInfo, setShowInfo] = useState({});
   const [currentTrack, setCurrentTrack] = useState({});
-  console.log(currentTrack);
+
   const onEnd = (array) => {
     array.shift();
     if (!array.length) return;
@@ -44,8 +44,10 @@ const App = () => {
     //console.log(trackInfo);
   };
 
+  document.body.style.backgroundColor = "rgba(209, 213, 219)";
+
   return (
-    <div className="bg-gray-300 lg:m-auto lg:max-w-screen-sm lg:flex-col lg:items-center">
+    <div className="min-h-screen bg-gray-300 lg:m-auto lg:max-w-screen-md lg:flex-col lg:items-center">
       <BrowserRouter>
         <ScrollToTop />
 

@@ -1,17 +1,14 @@
 import { Link, useParams } from "react-router-dom";
 import { useQuery } from "@tanstack/react-query";
 import fetchYears from "../methods/fetchYears";
+import LoadingAnimation from "./LoadingAnimation.jsx";
 
 const Years = () => {
   const { id } = useParams();
   const results = useQuery(["years", id], fetchYears);
 
   if (results.isLoading) {
-    return (
-      <div>
-        <h2>Loading</h2>
-      </div>
-    );
+    return <LoadingAnimation />;
   }
 
   let data = results.data.data;
@@ -28,7 +25,9 @@ const Years = () => {
           });
           return (
             <div key={index}>
-              <div className="mt-4 border-b-2 p-2 text-3xl">{key} Era</div>
+              <div className="mt-4 border-b-2 border-gray-600 p-2 text-3xl">
+                {key} Era
+              </div>
               {reversed.map((year, i) => {
                 return (
                   <Link
