@@ -2,7 +2,7 @@ const LoadingAnimation = () => {
   return (
     // <div className="flex h-screen w-screen items-center justify-center">
     <div
-      className=" flex h-screen w-screen items-center justify-center"
+      className=" fixed flex h-screen w-screen items-center justify-center"
       role="status"
     >
       <svg
