@@ -8,7 +8,11 @@ const Years = () => {
   const results = useQuery(["years", id], fetchYears);
 
   if (results.isLoading) {
-    return <LoadingAnimation />;
+    return (
+      <div className="min-w-screen flex min-h-screen items-center justify-center">
+        <LoadingAnimation />
+      </div>
+    );
   }
 
   let data = results.data.data;

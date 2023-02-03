@@ -11,6 +11,7 @@ module.exports = {
     },
     fontFamily: {
       display: ["Roboto", "sans-serif"],
+      comfortaa: ["Comfortaa", "cursive"],
     },
 
     extend: {

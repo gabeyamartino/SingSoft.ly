@@ -26,7 +26,7 @@ const Show = ({ setShowData, getTrackInfo, setCurrentTrack, currentTrack }) => {
 
   return (
     <div className="p-2">
-      <div className="flex-col">
+      <div className="flex-col font-comfortaa text-4xl">
         <div className="font-bold">
           {location.state.date.slice(5, 7)}.{location.state.date.slice(-2)}.
           {location.state.date.slice(0, 4)}
