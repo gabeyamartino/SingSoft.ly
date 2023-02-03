@@ -1,8 +1,6 @@
 const axios = require("axios");
 
 const getShowsFromYear = (req, res) => {
-  console.log("Fired when I clicked on a year");
-  console.log("ON LINE 5", req.query);
   let config = {
     headers: {
       Authorization: `Bearer ${process.env.API_KEY}`,

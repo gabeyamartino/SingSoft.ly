@@ -47,10 +47,9 @@ const App = () => {
   document.body.style.backgroundColor = "rgba(209, 213, 219)";
 
   return (
-    <div className="min-h-screen bg-gray-300 lg:m-auto lg:max-w-screen-md lg:flex-col lg:items-center">
+    <div className="min-w-screen min-h-screen flex-col items-center justify-center bg-gray-300 font-display lg:max-w-screen-md">
       <BrowserRouter>
         <ScrollToTop />
-
         <QueryClientProvider client={queryClient}>
           <Header showInfo={showInfo} currentTrack={currentTrack} />
           <Routes>

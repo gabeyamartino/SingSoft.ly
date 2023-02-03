@@ -5,9 +5,8 @@ const Header = ({ showInfo }) => {
   return (
     <div className="lg:min-w-screen-lg sticky top-0 z-50 flex items-center justify-between bg-logo-green p-2">
       <div className="">
-        <Link to="/" className="-pt-2 text-2xl">
+        <Link to="/">
           <Logo />
-          {/* <img src="../assets/logo-color.svg" alt="SingSoft.ly Logo"></img> */}
         </Link>
       </div>
 
