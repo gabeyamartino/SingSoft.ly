@@ -44,7 +44,7 @@ const App = () => {
     //console.log(trackInfo);
   };
 
-  document.body.style.backgroundColor = "#F5F5DC";
+  document.body.style.backgroundColor = "#F9F6EE";
 
   return (
     <div className="min-w-screen min-h-screen bg-background font-display text-gray-900 lg:m-auto lg:max-w-screen-md">
