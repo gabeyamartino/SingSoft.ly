@@ -24,6 +24,7 @@ const Player = ({ showInfo, currentTrack, onEnd, onPrevious }) => {
     <AudioPlayer
       className="sticky bottom-0 font-bold"
       autoPlay
+      customVolumeControls={[]}
       autoPlayAfterSrcChange
       src={currentTrack.mp3}
       header={currentTrack.title}

@@ -17,6 +17,8 @@ module.exports = {
     extend: {
       colors: {
         "logo-green": "#528265",
+        background: "#BAFFD6",
+        "song-green": "#287A49",
       },
     },
   },

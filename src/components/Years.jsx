@@ -29,7 +29,7 @@ const Years = () => {
           });
           return (
             <div key={index}>
-              <div className="mt-4 border-b-2 border-gray-600 p-2 text-3xl">
+              <div className="mt-4 border-b-2 border-gray-900 p-2 text-3xl">
                 {key} Era
               </div>
               {reversed.map((year, i) => {
@@ -38,7 +38,7 @@ const Years = () => {
                     to={`/year/${year}`}
                     year={year}
                     key={i}
-                    className="ml-2 block p-2 pl-0"
+                    className="ml-2 block p-2 pl-0 text-xl"
                   >
                     {year}
                   </Link>
