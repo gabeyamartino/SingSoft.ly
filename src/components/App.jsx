@@ -5,7 +5,7 @@ import Show from "./Show.jsx";
 import Player from "./Player.jsx";
 import ScrollToTop from "./ScrollToTop.jsx";
 import { useState } from "react";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 
 const queryClient = new QueryClient({
@@ -44,41 +44,39 @@ const App = () => {
     //console.log(trackInfo);
   };
 
-  document.body.style.backgroundColor = "#F9F6EE";
+  document.body.style.backgroundColor = "#F5F5DC";
 
   return (
     <div className="min-w-screen min-h-screen bg-background font-display text-gray-900 lg:m-auto lg:max-w-screen-md">
-      <BrowserRouter>
-        <ScrollToTop />
-        <QueryClientProvider client={queryClient}>
-          <Header showInfo={showInfo} currentTrack={currentTrack} />
-          <Routes>
-            <Route path="/" element={<Years />} />
-            <Route path="/years" element={<Years />} />
-            <Route path="year/:id" element={<Year />} />
-            <Route
-              path="show/:date"
-              element={
-                <Show
-                  setShowData={setShowData}
-                  showInfo={showInfo}
-                  getTrackInfo={getTrackInfo}
-                  setCurrentTrack={setCurrentTrack}
-                  currentTrack={currentTrack}
-                />
-              }
-            />
-          </Routes>
-          {currentTrack.mp3 && (
-            <Player
-              showInfo={showInfo}
-              currentTrack={currentTrack}
-              onEnd={onEnd}
-              onPrevious={onPrevious}
-            />
-          )}
-        </QueryClientProvider>
-      </BrowserRouter>
+      <ScrollToTop />
+      <QueryClientProvider client={queryClient}>
+        <Header showInfo={showInfo} currentTrack={currentTrack} />
+        <Routes>
+          <Route path="/" element={<Years />} />
+          <Route path="/years" element={<Years />} />
+          <Route path="year/:id" element={<Year />} />
+          <Route
+            path="show/:date"
+            element={
+              <Show
+                setShowData={setShowData}
+                showInfo={showInfo}
+                getTrackInfo={getTrackInfo}
+                setCurrentTrack={setCurrentTrack}
+                currentTrack={currentTrack}
+              />
+            }
+          />
+        </Routes>
+        {currentTrack.mp3 && (
+          <Player
+            showInfo={showInfo}
+            currentTrack={currentTrack}
+            onEnd={onEnd}
+            onPrevious={onPrevious}
+          />
+        )}
+      </QueryClientProvider>
     </div>
   );
 };

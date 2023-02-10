@@ -1,7 +1,12 @@
 import { Link } from "react-router-dom";
 import { ReactComponent as Logo } from "../assets/logo-color.svg";
+import { useEffect } from "react";
 
 const Header = ({ showInfo }) => {
+  useEffect(() => {
+    console.log("I rendered");
+  }, []);
+
   return (
     <div className="lg:min-w-screen-lg sticky top-0 z-50 flex items-center justify-between bg-logo-green p-2">
       <div className="">
