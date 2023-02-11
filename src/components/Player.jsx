@@ -4,8 +4,6 @@ import "react-h5-audio-player/lib/styles.css";
 const Player = ({ showInfo, currentTrack, onEnd, onPrevious }) => {
   const tracks = showInfo.tracks;
 
-  console.log("CURRENT TRACK IN PLAYER: ", currentTrack.title);
-
   const checkTrackInList = (track) => {
     return track.title === currentTrack.title;
   };
@@ -17,12 +15,9 @@ const Player = ({ showInfo, currentTrack, onEnd, onPrevious }) => {
 
   let tracksBeforeCurrent = tracks.slice(0, tracks.findIndex(checkTrackInList));
 
-  console.log(tracksBeforeCurrent);
-
-  console.log(tracksAfterCurrent);
   return (
     <AudioPlayer
-      className="sticky bottom-0 mt-auto font-bold"
+      className="sticky bottom-0 font-bold"
       autoPlay
       customVolumeControls={[]}
       autoPlayAfterSrcChange

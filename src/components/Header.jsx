@@ -1,19 +1,17 @@
 import { Link } from "react-router-dom";
-import { ReactComponent as Logo } from "../assets/logo-color.svg";
-import { useEffect } from "react";
+import React, { useEffect, useLayoutEffect } from "react";
+import Logo from "./Logo.jsx";
 
 const Header = ({ showInfo }) => {
-  useEffect(() => {
-    console.log("I rendered");
-  }, []);
+  useLayoutEffect(() => {
+    console.log("I rendered once");
+  }, [showInfo]);
 
   return (
-    <div className="lg:min-w-screen-lg sticky top-0 z-50 flex items-center justify-between bg-logo-green p-2">
-      <div className="">
-        <Link to="/">
-          <Logo />
-        </Link>
-      </div>
+    <div className="lg:min-w-screen-lg z-2 sticky top-0 flex h-44 items-center justify-between bg-logo-green p-2">
+      <Link to="/">
+        <Logo className="z-2" />
+      </Link>
 
       {Object.keys(showInfo).length > 0 && (
         <div className="text-white">
@@ -43,4 +41,4 @@ const Header = ({ showInfo }) => {
   );
 };
 
-export default Header;
+export default React.memo(Header);

@@ -3,8 +3,9 @@ import Years from "./Years.jsx";
 import Year from "./Year.jsx";
 import Show from "./Show.jsx";
 import Player from "./Player.jsx";
+import LoadingAnimation from "./LoadingAnimation.jsx";
 import ScrollToTop from "./ScrollToTop.jsx";
-import { useState } from "react";
+import { useState, Suspense } from "react";
 import { Routes, Route } from "react-router-dom";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 
@@ -32,7 +33,6 @@ const App = () => {
     curr.unshift(prev[prev.length - 1]);
     setCurrentTrack(curr[0]);
   };
-  console.log("CURRENT TRACK", currentTrack);
 
   const setShowData = (data) => {
     setShowInfo(data);
@@ -51,23 +51,25 @@ const App = () => {
       <ScrollToTop />
       <QueryClientProvider client={queryClient}>
         <Header showInfo={showInfo} currentTrack={currentTrack} />
-        <Routes>
-          <Route path="/" element={<Years />} />
-          <Route path="/years" element={<Years />} />
-          <Route path="year/:id" element={<Year />} />
-          <Route
-            path="show/:date"
-            element={
-              <Show
-                setShowData={setShowData}
-                showInfo={showInfo}
-                getTrackInfo={getTrackInfo}
-                setCurrentTrack={setCurrentTrack}
-                currentTrack={currentTrack}
-              />
-            }
-          />
-        </Routes>
+        <Suspense fallback={<LoadingAnimation />}>
+          <Routes>
+            <Route path="/" element={<Years />} />
+            <Route path="/years" element={<Years />} />
+            <Route path="year/:id" element={<Year />} />
+            <Route
+              path="show/:date"
+              element={
+                <Show
+                  setShowData={setShowData}
+                  showInfo={showInfo}
+                  getTrackInfo={getTrackInfo}
+                  setCurrentTrack={setCurrentTrack}
+                  currentTrack={currentTrack}
+                />
+              }
+            />
+          </Routes>
+        </Suspense>
         {currentTrack.mp3 && (
           <Player
             showInfo={showInfo}
