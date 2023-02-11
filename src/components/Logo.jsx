@@ -1,5 +1,4 @@
 const Logo = () => {
-  console.log("Im a stupid logo");
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
