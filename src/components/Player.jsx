@@ -22,7 +22,7 @@ const Player = ({ showInfo, currentTrack, onEnd, onPrevious }) => {
   console.log(tracksAfterCurrent);
   return (
     <AudioPlayer
-      className="sticky bottom-0 font-bold"
+      className="sticky bottom-0 mt-auto font-bold"
       autoPlay
       customVolumeControls={[]}
       autoPlayAfterSrcChange

@@ -1,13 +1,12 @@
 const LoadingAnimation = () => {
   return (
-    // <div className="flex h-screen w-screen items-center justify-center">
     <div
       className=" fixed flex h-screen w-screen items-center justify-center"
       role="status"
     >
       <svg
         aria-hidden="true"
-        className="-mt-64 h-20  w-20  animate-spin fill-song-green text-gray-300 dark:text-gray-300"
+        className="dark:text-gray-00 -mt-64  h-20  w-20 animate-spin fill-song-green text-gray-300"
         viewBox="0 0 100 100"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
@@ -23,7 +22,6 @@ const LoadingAnimation = () => {
       </svg>
       <span className="sr-only">Loading...</span>
     </div>
-    // </div>
   );
 };
 

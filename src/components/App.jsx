@@ -47,7 +47,7 @@ const App = () => {
   document.body.style.backgroundColor = "#F5F5DC";
 
   return (
-    <div className="min-w-screen min-h-screen bg-background font-display text-gray-900 lg:m-auto lg:max-w-screen-md">
+    <div className="min-w-screen min-h-screen flex-col bg-background font-display text-gray-900 lg:m-auto lg:max-w-screen-md">
       <ScrollToTop />
       <QueryClientProvider client={queryClient}>
         <Header showInfo={showInfo} currentTrack={currentTrack} />

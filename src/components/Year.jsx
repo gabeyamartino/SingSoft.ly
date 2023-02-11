@@ -19,7 +19,7 @@ const Year = () => {
   let ordered = [...data].reverse();
 
   return (
-    <div className="p-1">
+    <div className="min-h-screen p-1">
       {ordered.map((show, i) => {
         return (
           <Link
