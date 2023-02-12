@@ -1,9 +1,11 @@
 import { Link } from "react-router-dom";
+import { useRef } from "react";
 import Logo from "../assets/logo-color.svg";
 
 const Header = ({ showInfo }) => {
+  const ref = useRef(null);
   return (
-    <div className="lg:min-w-screen-lg z-2 sticky top-0 flex h-44 items-center justify-between bg-logo-green p-2">
+    <div className="lg:min-w-screen-lg flex h-44 items-center justify-between bg-logo-green p-2">
       <Link to="/">
         <img src={Logo} alt="Logo" />
       </Link>

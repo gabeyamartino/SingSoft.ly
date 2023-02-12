@@ -1,11 +1,11 @@
 import Header from "./Header.jsx";
+import HeaderWrapper from "./HeaderWrapper.jsx";
 import Years from "./Years.jsx";
 import Year from "./Year.jsx";
 import Show from "./Show.jsx";
 import Player from "./Player.jsx";
-import LoadingAnimation from "./LoadingAnimation.jsx";
 import ScrollToTop from "./ScrollToTop.jsx";
-import { useState, Suspense } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { Routes, Route } from "react-router-dom";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 
@@ -21,6 +21,12 @@ const queryClient = new QueryClient({
 const App = () => {
   const [showInfo, setShowInfo] = useState({});
   const [currentTrack, setCurrentTrack] = useState({});
+
+  const headerRef = useRef(null);
+
+  useEffect(() => {
+    headerRef.current.scrollTop = 0;
+  }, []);
 
   const onEnd = (array) => {
     array.shift();
@@ -48,28 +54,33 @@ const App = () => {
 
   return (
     <div className="min-w-screen min-h-screen flex-col bg-background font-display text-gray-900 lg:m-auto lg:max-w-screen-md">
-      <ScrollToTop />
       <QueryClientProvider client={queryClient}>
-        <Header showInfo={showInfo} currentTrack={currentTrack} />
-        <Suspense fallback={<LoadingAnimation />}>
-          <Routes>
-            <Route path="/" element={<Years />} />
-            <Route path="/years" element={<Years />} />
-            <Route path="year/:id" element={<Year />} />
-            <Route
-              path="show/:date"
-              element={
-                <Show
-                  setShowData={setShowData}
-                  showInfo={showInfo}
-                  getTrackInfo={getTrackInfo}
-                  setCurrentTrack={setCurrentTrack}
-                  currentTrack={currentTrack}
-                />
-              }
-            />
-          </Routes>
-        </Suspense>
+        <ScrollToTop />
+
+        <HeaderWrapper
+          ref={headerRef}
+          showInfo={showInfo}
+          key={showInfo.date}
+        />
+
+        <Routes>
+          <Route path="/" element={<Years />} />
+          <Route path="/years" element={<Years />} />
+          <Route path="year/:id" element={<Year />} />
+          <Route
+            path="show/:date"
+            element={
+              <Show
+                setShowData={setShowData}
+                showInfo={showInfo}
+                getTrackInfo={getTrackInfo}
+                setCurrentTrack={setCurrentTrack}
+                currentTrack={currentTrack}
+              />
+            }
+          />
+        </Routes>
+
         {currentTrack.mp3 && (
           <Player
             showInfo={showInfo}
