@@ -1,4 +1,3 @@
-import Header from "./Header.jsx";
 import HeaderWrapper from "./HeaderWrapper.jsx";
 import Years from "./Years.jsx";
 import Year from "./Year.jsx";
@@ -8,6 +7,10 @@ import ScrollToTop from "./ScrollToTop.jsx";
 import React, { useState, useEffect, useRef } from "react";
 import { Routes, Route } from "react-router-dom";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import ReactGA from "react-ga";
+
+const TRACKING_ID = "UA-256965728-1";
+ReactGA.initialize(TRACKING_ID);
 
 const queryClient = new QueryClient({
   defaultOptions: {
