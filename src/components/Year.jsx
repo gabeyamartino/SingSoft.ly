@@ -1,11 +1,21 @@
 import { useParams, Link } from "react-router-dom";
+import { useEffect } from "react";
 import { useQuery } from "@tanstack/react-query";
 import fetchShowsFromYear from "../methods/fetchShowsFromYear";
 import LoadingAnimation from "./LoadingAnimation.jsx";
 
+import ReactGA from "react-ga";
+
+const TRACKING_ID = "UA-256965728-1";
+ReactGA.initialize(TRACKING_ID);
+
 const Year = () => {
   const { id } = useParams();
   const results = useQuery(["year", id], () => fetchShowsFromYear(id));
+
+  useEffect(() => {
+    ReactGA.pageview(window.location.pathname + window.location.search);
+  }, []);
 
   if (results.isLoading) {
     return (

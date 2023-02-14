@@ -1,7 +1,17 @@
 import { useLocation } from "react-router-dom";
+import { useEffect } from "react";
 import Song from "./Song.jsx";
 
+import ReactGA from "react-ga";
+
+const TRACKING_ID = "UA-256965728-1";
+ReactGA.initialize(TRACKING_ID);
+
 const Show = ({ setShowData, getTrackInfo, setCurrentTrack, currentTrack }) => {
+  useEffect(() => {
+    ReactGA.pageview(window.location.pathname + window.location.search);
+  }, []);
+
   const location = useLocation();
   let set = "";
 
