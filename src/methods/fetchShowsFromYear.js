@@ -8,7 +8,6 @@ const fetchShowsFromYear = (year) => {
       },
     })
     .then((response) => {
-      console.log(response.data);
       return response.data;
     })
     .catch((err) => {

@@ -45,12 +45,10 @@ const App = () => {
 
   const setShowData = (data) => {
     setShowInfo(data);
-    //console.log(showInfo);
   };
 
   const getTrackInfo = (track) => {
     setCurrentTrack(track);
-    //console.log(trackInfo);
   };
 
   document.body.style.backgroundColor = "#F9F6EE";
