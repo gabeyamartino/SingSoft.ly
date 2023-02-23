@@ -1,11 +1,6 @@
 const axios = require("axios");
 
-let people = 0;
-
 const getAllYears = (req, res) => {
-  people += 1;
-
-  console.log(`${people} people have visited!`);
   let config = {
     headers: {
       Authorization: `Bearer ${process.env.API_KEY}`,
